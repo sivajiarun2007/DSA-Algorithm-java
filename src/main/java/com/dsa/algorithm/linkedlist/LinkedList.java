@@ -17,15 +17,20 @@ public class LinkedList {
 	}
 
 	public void printDetails() {
-		System.out.println("First Node: " + getHeadNode().value);
-		System.out.println("last Node: " + getTailNode().value);
-		System.out.println("Length: " + getSize());
+		if (getSize() > 0) {
+			System.out.println("First Node: " + getHeadNode().value);
+			System.out.println("last Node: " + getTailNode().value);
+			System.out.println("Length: " + getSize());
+		} else {
+			System.out.println("Empty list");
+		}
+
 	}
 
 	public void printAll() {
 		Node start = head;
 		while (start != null) {
-			System.out.print(" " + start.value );
+			System.out.print(" " + start.value);
 			start = start.next;
 		}
 	}
@@ -54,18 +59,27 @@ public class LinkedList {
 		length++;
 
 	}
-	
-	public void removeLast() {
+
+	public Node removeLast() {
 		Node start = head;
-		while(start != null) {
-			if(start.next == tail) {
-				tail= start;
+		Node removedElement = null;
+		while (start != null) {
+			if (start == tail) {
+				head = null;
+				tail = null;
+				removedElement = start;
+				length--;
+			} else if (start.next == tail) {
+				removedElement = start.next;
+				tail = start;
 				tail.next = null;
+				length--;
 				break;
 			}
 			start = start.next;
 		}
-		length--;
+		return removedElement;
+
 	}
 
 }
