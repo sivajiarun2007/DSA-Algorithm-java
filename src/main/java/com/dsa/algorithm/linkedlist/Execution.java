@@ -36,6 +36,16 @@ public class Execution {
 		list1.printDetails();
 		System.out.println(list1.removeFirst());
 		list1.printDetails();
+		
+		LinkedList list3 = new LinkedList();
+		System.out.println(list3.getNode(0));
+		
+		list3.append(9);
+		list3.prepend(8);
+		System.out.println(list3.getNode(0).value);
+		System.out.println(list3.getNode(1).value);
+		System.out.println(list3.getNode(2));
+		System.out.println(list3.getNode(-1));
 
 	}
 

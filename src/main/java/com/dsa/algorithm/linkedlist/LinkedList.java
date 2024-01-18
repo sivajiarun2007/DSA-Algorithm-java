@@ -95,9 +95,9 @@ public class LinkedList {
 			tail = null;
 		} else {
 			head = head.next;
-			removeElement.next = null; 
+			removeElement.next = null;
 		}
-		
+
 		length--;
 		return removeElement;
 	}
@@ -112,6 +112,24 @@ public class LinkedList {
 			head = newNode;
 		}
 		length++;
+	}
+
+	public Node getNode(int index) {
+		Node node = null;
+		int start = 0;
+		Node ptr = head;
+		if (index >= 0 && index <= length - 1) {
+			while (start <= length - 1) {
+				if (start == index) {
+					node = ptr;
+					break;
+				}
+				ptr = ptr.next;
+				start++;
+			}
+		}
+
+		return node;
 	}
 
 }
