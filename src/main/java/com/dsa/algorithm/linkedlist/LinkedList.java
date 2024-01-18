@@ -83,10 +83,28 @@ public class LinkedList {
 		return removedElement;
 
 	}
-	
+
+	public Node removeFirst() {
+		Node removeElement = null;
+		if (length == 0)
+			return removeElement;
+
+		removeElement = head;
+		if (head == tail) {
+			head = null;
+			tail = null;
+		} else {
+			head = head.next;
+			removeElement.next = null; 
+		}
+		
+		length--;
+		return removeElement;
+	}
+
 	public void prepend(int value) {
 		Node newNode = new Node(value);
-		if(length == 0) {
+		if (length == 0) {
 			head = newNode;
 			tail = newNode;
 		} else {

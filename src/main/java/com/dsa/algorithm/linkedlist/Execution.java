@@ -6,8 +6,8 @@ public class Execution {
 		LinkedList list = new LinkedList(1);
 		list.append(2);
 		list.append(3);
-		list.printDetails();
-		System.out.println("");
+//		list.printDetails();
+//		System.out.println("");
 		System.out.println("Removed value" + list.removeLast().value);
 		
 		list.printDetails();
@@ -15,16 +15,18 @@ public class Execution {
 		System.out.println("");
 		
 		LinkedList list1 = new LinkedList();
-		list1.removeLast();
+		System.out.println(list1.removeLast());
+		System.out.println(list1.removeFirst());
 		list1.append(4);
+		System.out.println(list1.removeFirst().value);
 		list1.append(5);
 		list1.printDetails();
 
 		System.out.println("");
 		System.out.println("Removed value " + list1.removeLast().value);
-		System.out.println("Removed value " + list1.removeLast().value);
+//		System.out.println("Removed value " + list1.removeLast().value);
 		System.out.println("Removed value " + list1.removeLast());
-		System.out.println("Removed value " + list1.removeLast());
+//		System.out.println("Removed value " + list1.removeLast());
 		list1.printDetails();
 		list1.prepend(6);
 		list1.printDetails();
@@ -32,7 +34,8 @@ public class Execution {
 		list1.printDetails();
 		list1.append(7);
 		list1.printDetails();
-		
+		System.out.println(list1.removeFirst());
+		list1.printDetails();
 
 	}
 
