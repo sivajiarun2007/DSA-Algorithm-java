@@ -24,10 +24,12 @@ public class LinkedList {
 		} else {
 			System.out.println("Empty list");
 		}
+		System.out.println("");
+		printAll();
 
 	}
 
-	public void printAll() {
+	private void printAll() {
 		Node start = head;
 		while (start != null) {
 			System.out.print(" " + start.value);
@@ -80,6 +82,18 @@ public class LinkedList {
 		}
 		return removedElement;
 
+	}
+	
+	public void prepend(int value) {
+		Node newNode = new Node(value);
+		if(length == 0) {
+			head = newNode;
+			tail = newNode;
+		} else {
+			newNode.next = head;
+			head = newNode;
+		}
+		length++;
 	}
 
 }
