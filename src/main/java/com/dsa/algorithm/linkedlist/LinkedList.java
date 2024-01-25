@@ -234,4 +234,52 @@ public class LinkedList {
 
 	}
 
+	public Node findMiddleNode() {
+		if(head == null)
+			return null;
+		
+		Node ptr1 = head;
+		Node ptr2 = head;
+		
+		while(ptr2 !=null  && ptr2.next !=null) {
+			ptr1 =ptr1.next;
+			ptr2= ptr2.next.next;
+		}
+		
+		return ptr1;
+		
+	}
+	
+	public Node findKthFromEnd(int k) {
+	    if( head == null) {
+	        return null;
+	    }
+	    System.out.println("kth value: " + k );
+	    if(k==0) {
+	        return tail;
+	    }
+	    Node slow= head;
+	    Node fast=movePointerKTimes(head, k);
+	    System.out.println("fast value: " + fast);
+	    if(fast ==null && k==1) {
+	        return slow;
+	    }
+	    if(fast ==null && k>1) {
+	        return null;
+	    }
+	    while(fast != null && fast.next !=null) {
+	        slow = slow.next;
+	        fast = movePointerKTimes(fast, k);
+	    }
+	    return slow.next;
+	}
+	
+	private Node movePointerKTimes(Node head, int k) {
+	    Node temp = head;
+	    for(int i=0; i<k && temp !=null; i++) {
+	        temp= temp.next;
+	    }
+	    return temp;
+	}
+
 }

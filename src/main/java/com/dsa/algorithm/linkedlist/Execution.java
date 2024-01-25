@@ -3,17 +3,7 @@ package com.dsa.algorithm.linkedlist;
 public class Execution {
 
 	public static void main(String[] args) {
-		LinkedList reverseCheck = new LinkedList();
-		reverseCheck.reverse();
-		reverseCheck.printDetails();
-		reverseCheck.append(1);
-		reverseCheck.append(2);
-		reverseCheck.append(3);
-		reverseCheck.append(4);
-		reverseCheck.append(5);
-		reverseCheck.printDetails();
-		reverseCheck.reverse();
-		reverseCheck.printDetails();
+		
 	}
 
 	private static void testLinkedList() {
@@ -86,7 +76,19 @@ public class Execution {
 //		System.out.println(list5.insertNodeV2(2, 3));
 //		list5.printDetails();
 	
-		
+
+		LinkedList reverseCheck = new LinkedList();
+		reverseCheck.reverse();
+		reverseCheck.printDetails();
+		reverseCheck.append(1);
+		reverseCheck.append(2);
+		reverseCheck.append(3);
+		reverseCheck.append(4);
+		reverseCheck.append(5);
+		reverseCheck.printDetails();
+		reverseCheck.reverse();
+		reverseCheck.printDetails();
+	
 		
 
 	
