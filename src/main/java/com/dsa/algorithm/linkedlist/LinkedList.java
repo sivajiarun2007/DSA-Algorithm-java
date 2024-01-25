@@ -205,7 +205,7 @@ public class LinkedList {
 		} else {
 			Node temp= getNode(index-1);
 			deleteNode=temp.next;
-			temp.next=temp.next.next;
+			temp.next=deleteNode.next;
 			deleteNode.next=null;
 			length--;
 		}
