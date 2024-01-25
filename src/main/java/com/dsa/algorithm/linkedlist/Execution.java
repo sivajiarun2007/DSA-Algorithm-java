@@ -3,8 +3,17 @@ package com.dsa.algorithm.linkedlist;
 public class Execution {
 
 	public static void main(String[] args) {
-		double d=0Xface;
-		System.out.println(d);
+		LinkedList reverseCheck = new LinkedList();
+		reverseCheck.reverse();
+		reverseCheck.printDetails();
+		reverseCheck.append(1);
+		reverseCheck.append(2);
+		reverseCheck.append(3);
+		reverseCheck.append(4);
+		reverseCheck.append(5);
+		reverseCheck.printDetails();
+		reverseCheck.reverse();
+		reverseCheck.printDetails();
 	}
 
 	private static void testLinkedList() {

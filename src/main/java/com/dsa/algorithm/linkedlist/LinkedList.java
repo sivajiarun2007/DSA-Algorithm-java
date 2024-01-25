@@ -213,4 +213,25 @@ public class LinkedList {
 		return deleteNode;
 	}
 
+	public void reverse() {
+		if (length > 1) {
+			Node temp = head;
+			head = tail;
+			tail = temp;
+
+			Node prev = tail;
+			Node nxtNode = tail.next;
+
+			while (nxtNode != null) {
+				temp = nxtNode;
+				nxtNode = nxtNode.next;
+				temp.next = prev;
+				prev = temp;
+
+			}
+			tail.next = null;
+		}
+
+	}
+
 }
