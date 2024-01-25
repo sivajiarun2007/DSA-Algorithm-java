@@ -192,17 +192,26 @@ public class LinkedList {
 
 	}
 
-	public boolean removeNode(int index) {
-		Node current = getNode(index - 1);
-		Node temp = null;
-		if (current != null) {
-			temp = current.next;
-			current.next = current.next.next;
-			temp.next = null;
-			return true;
+	public Node remove(int index) {
+		if (length == 0 || index < 0 || index >= length) {
+			return null;
 		}
-		return false;
+		Node deleteNode = null;
 
+		if (index == 0) {
+			deleteNode = removeFirst();
+		} else if (index == length - 1) {
+			deleteNode = removeLast();
+		} else {
+			Node temp= getNode(index-1);
+			deleteNode=temp.next;
+			temp.next=temp.next.next;
+			deleteNode.next=null;
+			length--;
+		}
+
+		
+		return deleteNode;
 	}
 
 }

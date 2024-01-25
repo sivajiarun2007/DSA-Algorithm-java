@@ -3,17 +3,8 @@ package com.dsa.algorithm.linkedlist;
 public class Execution {
 
 	public static void main(String[] args) {
-//		testLinkedList();
-		LinkedList list5 = new LinkedList();
-		System.out.println(list5.insertNodeV2(0, 1));
-		list5.append(1);
-		list5.append(3);
-		System.out.println(list5.insertNodeV2(0, 2));
-		list5.printDetails();
-//		list5.append(2);
-//		System.out.println(list5.insertNodeV2(3, 3));
-//		System.out.println(list5.insertNodeV2(2, 3));
-//		list5.printDetails();
+		double d=0Xface;
+		System.out.println(d);
 	}
 
 	private static void testLinkedList() {
@@ -73,7 +64,19 @@ public class Execution {
 		System.out.println(list4.setNodeValue(2, 12));
 		
 		
+
+//		testLinkedList();
 		LinkedList list5 = new LinkedList();
+		System.out.println(list5.insertNodeV2(0, 1));
+		list5.append(1);
+		list5.append(3);
+		System.out.println(list5.insertNodeV2(0, 2));
+		list5.printDetails();
+//		list5.append(2);
+//		System.out.println(list5.insertNodeV2(3, 3));
+//		System.out.println(list5.insertNodeV2(2, 3));
+//		list5.printDetails();
+	
 		
 		
 
