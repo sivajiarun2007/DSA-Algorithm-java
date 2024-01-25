@@ -1,5 +1,7 @@
 package com.dsa.algorithm.linkedlist;
 
+import java.util.HashSet;
+
 public class LinkedList {
 	private Node head;
 	private Node tail;
@@ -235,51 +237,105 @@ public class LinkedList {
 	}
 
 	public Node findMiddleNode() {
-		if(head == null)
+		if (head == null)
 			return null;
-		
+
 		Node ptr1 = head;
 		Node ptr2 = head;
-		
-		while(ptr2 !=null  && ptr2.next !=null) {
-			ptr1 =ptr1.next;
-			ptr2= ptr2.next.next;
+
+		while (ptr2 != null && ptr2.next != null) {
+			ptr1 = ptr1.next;
+			ptr2 = ptr2.next.next;
 		}
-		
+
 		return ptr1;
-		
+
 	}
-	
+
 	public Node findKthFromEnd(int k) {
-	    if( head == null) {
-	        return null;
-	    }
-	    System.out.println("kth value: " + k );
-	    if(k==0) {
-	        return tail;
-	    }
-	    Node slow= head;
-	    Node fast=movePointerKTimes(head, k);
-	    System.out.println("fast value: " + fast);
-	    if(fast ==null && k==1) {
-	        return slow;
-	    }
-	    if(fast ==null && k>1) {
-	        return null;
-	    }
-	    while(fast != null && fast.next !=null) {
-	        slow = slow.next;
-	        fast = movePointerKTimes(fast, k);
-	    }
-	    return slow.next;
+		if (head == null) {
+			return null;
+		}
+		System.out.println("kth value: " + k);
+		if (k == 0) {
+			return tail;
+		}
+		Node slow = head;
+		Node fast = movePointerKTimes(head, k);
+		System.out.println("fast value: " + fast);
+		if (fast == null && k == 1) {
+			return slow;
+		}
+		if (fast == null && k > 1) {
+			return null;
+		}
+		while (fast != null && fast.next != null) {
+			slow = slow.next;
+			fast = movePointerKTimes(fast, k);
+		}
+		return slow.next;
+	}
+
+	private Node movePointerKTimes(Node head, int k) {
+		Node temp = head;
+		for (int i = 0; i < k && temp != null; i++) {
+			temp = temp.next;
+		}
+		return temp;
+	}
+
+	public void partitionList(int value) {
+        if(head == null) return;
+        System.out.println("value: " + value);
+		Node min = head;
+		Node max = head;
+		Node prevMin = null;
+		Node prevMax = null;
+		
+		while(max != null ) {
+		    
+			if(min.value<value) {
+			    
+				// prevMin = min;
+				// prevMax = max;
+				min=min.next;
+				max=max.next;
+			} else {
+			    
+				if(max.value >= value) {
+				    
+					prevMax = max;
+					max= max.next;
+					
+				} else {
+				    if(prevMin == null) {
+				        prevMax.next = max.next;
+				        max.next = min;
+				        head =  max;
+				        prevMin = head;
+				        max = prevMax.next;
+				        
+				    } else {
+				        prevMin.next = max;
+					prevMax.next = max.next;
+					max.next = min;
+					min=max;
+					max=prevMax.next;
+				    }
+					
+					
+				}
+			}
+		}
+		System.out.println("after result");
 	}
 	
-	private Node movePointerKTimes(Node head, int k) {
-	    Node temp = head;
-	    for(int i=0; i<k && temp !=null; i++) {
-	        temp= temp.next;
-	    }
-	    return temp;
-	}
+	public void removeDuplicates() {
+        Node temp = head;
+        HashSet removedup = new HashSet<>();
+        for(int i =0; i< length ; i ++) {
+            
+        }
+    }
 
 }
