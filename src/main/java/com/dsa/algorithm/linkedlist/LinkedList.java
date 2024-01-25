@@ -199,18 +199,17 @@ public class LinkedList {
 		Node deleteNode = null;
 
 		if (index == 0) {
-			deleteNode = removeFirst();
-		} else if (index == length - 1) {
-			deleteNode = removeLast();
-		} else {
-			Node temp= getNode(index-1);
-			deleteNode=temp.next;
-			temp.next=deleteNode.next;
-			deleteNode.next=null;
-			length--;
+			return removeFirst();
 		}
+		if (index == length - 1) {
+			return removeLast();
+		}
+		Node temp = getNode(index - 1);
+		deleteNode = temp.next;
+		temp.next = deleteNode.next;
+		deleteNode.next = null;
+		length--;
 
-		
 		return deleteNode;
 	}
 
