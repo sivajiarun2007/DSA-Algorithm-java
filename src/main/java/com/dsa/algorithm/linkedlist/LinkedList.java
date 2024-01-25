@@ -329,12 +329,23 @@ public class LinkedList {
 		}
 		System.out.println("after result");
 	}
-	
+	/* 1-> 1-> 2-> ->3 -> null */
 	public void removeDuplicates() {
+        if(length ==0) return;
         Node temp = head;
+        Node prev = head;
         HashSet removedup = new HashSet<>();
-        for(int i =0; i< length ; i ++) {
-            
+        removedup.add(temp.value);
+        temp = temp.next;
+        while(temp !=null)  {
+        	boolean notDuplicate = removedup.add(temp.value);
+        	if(!notDuplicate) {
+        		prev.next = temp.next;
+        	} else {
+        		prev = prev.next;
+        	}
+        	temp = temp.next;
+        	
         }
     }
 
