@@ -31,7 +31,7 @@ public class LinkedList {
 
 	}
 
-	private void printAll() {
+	public void printAll() {
 		Node start = head;
 		while (start != null) {
 			System.out.print(" " + start.value);
@@ -285,68 +285,124 @@ public class LinkedList {
 	}
 
 	public void partitionList(int value) {
-        if(head == null) return;
-        System.out.println("value: " + value);
+		if (head == null)
+			return;
+		System.out.println("value: " + value);
 		Node min = head;
 		Node max = head;
 		Node prevMin = null;
 		Node prevMax = null;
-		
-		while(max != null ) {
-		    
-			if(min.value<value) {
-			    
+
+		while (max != null) {
+
+			if (min.value < value) {
+
 				// prevMin = min;
 				// prevMax = max;
-				min=min.next;
-				max=max.next;
+				min = min.next;
+				max = max.next;
 			} else {
-			    
-				if(max.value >= value) {
-				    
+
+				if (max.value >= value) {
+
 					prevMax = max;
-					max= max.next;
-					
+					max = max.next;
+
 				} else {
-				    if(prevMin == null) {
-				        prevMax.next = max.next;
-				        max.next = min;
-				        head =  max;
-				        prevMin = head;
-				        max = prevMax.next;
-				        
-				    } else {
-				        prevMin.next = max;
-					prevMax.next = max.next;
-					max.next = min;
-					min=max;
-					max=prevMax.next;
-				    }
-					
-					
+					if (prevMin == null) {
+						prevMax.next = max.next;
+						max.next = min;
+						head = max;
+						prevMin = head;
+						max = prevMax.next;
+
+					} else {
+						prevMin.next = max;
+						prevMax.next = max.next;
+						max.next = min;
+						min = max;
+						max = prevMax.next;
+					}
+
 				}
 			}
 		}
 		System.out.println("after result");
 	}
+
 	/* 1-> 1-> 2-> ->3 -> null */
 	public void removeDuplicates() {
-        if(length ==0) return;
-        Node temp = head;
-        Node prev = head;
-        HashSet removedup = new HashSet<>();
-        removedup.add(temp.value);
-        temp = temp.next;
-        while(temp !=null)  {
-        	boolean notDuplicate = removedup.add(temp.value);
-        	if(!notDuplicate) {
-        		prev.next = temp.next;
-        	} else {
-        		prev = prev.next;
-        	}
-        	temp = temp.next;
-        	
-        }
-    }
+		if (length == 0)
+			return;
+		Node temp = head;
+		Node prev = head;
+		HashSet removedup = new HashSet<>();
+		removedup.add(temp.value);
+		temp = temp.next;
+		while (temp != null) {
+			boolean notDuplicate = removedup.add(temp.value);
+			if (!notDuplicate) {
+				prev.next = temp.next;
+			} else {
+				prev = prev.next;
+			}
+			temp = temp.next;
+
+		}
+	}
+
+	public void reverseBetween(int m, int n) {
+
+		if (head == null || head.next == null || n <= m || n >= length) {
+			return;
+		}
+
+		Node current = head;
+		Node start = head;
+		Node end = head;
+		Node prev = null;
+		if (m == 0) {
+			prev = head;
+		}
+
+		Node last = head;
+		for (int i = 0; i < m - 1; i++) {
+//			prev = current;
+			current = current.next;
+		}
+		for (int i = 0; i < n; i++) {
+			last = last.next;
+		}
+		start = current;
+		end = last.next;
+//		prev = current;
+		current = current.next;
+
+		while (current != last && current != null) {
+			Node temp = current;
+			current = current.next;
+			temp.next = prev;
+			prev = temp;
+		}
+		current.next = prev;
+		if (m == 0) {
+			head.next = null;
+			head = current;
+		} else {
+			start.next = current;
+		}
+
+		System.out.println("first loop done.");
+
+		Node trail = null;
+		Node loopStart = head;
+		while (loopStart != null) {
+			trail = loopStart;
+			loopStart = loopStart.next;
+			System.out.println();
+		}
+		trail.next = end;
+
+	}
 
 }

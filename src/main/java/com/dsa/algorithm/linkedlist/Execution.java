@@ -3,7 +3,14 @@ package com.dsa.algorithm.linkedlist;
 public class Execution {
 
 	public static void main(String[] args) {
-		
+		LinkedList testReversBetweenLL = new LinkedList(1);
+		testReversBetweenLL.append(2);
+		testReversBetweenLL.append(3);
+		testReversBetweenLL.append(4);
+		testReversBetweenLL.append(5);
+		testReversBetweenLL.printAll();
+		testReversBetweenLL.reverseBetween(0, 2);
+		testReversBetweenLL.printAll();
 	}
 
 	private static void testLinkedList() {
