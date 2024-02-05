@@ -118,4 +118,31 @@ public class DoublyLinkedList {
 		return temp;
 	}
 
+	public Node get(int index) {
+		if (index < 0 || index > length - 1) {
+			return null;
+		}
+		if (index == 0)
+			return head;
+		if (index == length - 1)
+			return tail;
+		Node temp = head;
+		for (int i = 0; i < index; i++) {
+			temp = temp.next;
+		}
+		return temp;
+	}
+
+	public boolean set(int index, int value) {
+		if (index < 0 || index > length - 1) {
+			return false;
+		}
+		Node current = get(index);
+		if (current == null)
+			return false;
+		current.value = value;
+		return true;
+
+	}
+
 }
