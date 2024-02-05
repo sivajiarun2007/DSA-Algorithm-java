@@ -145,4 +145,27 @@ public class DoublyLinkedList {
 
 	}
 
+	public boolean insert(int index, int value) {
+		if (index < 0 || index > length ) {
+			return false;
+		}
+		if(index == 0 ) {
+			prepend(value);
+			return true;
+		}
+		if(index == length) {
+			append(value);
+			return true;
+		}
+		
+		Node current = get(index-1);
+		Node newNode = new Node(value);
+		newNode.next = current.next;
+		current.next.prev = newNode;
+		newNode.prev =current;
+		current.next = newNode;
+		length++;
+		return true;
+	}
+
 }
