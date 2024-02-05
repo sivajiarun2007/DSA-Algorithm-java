@@ -5,7 +5,7 @@ public class ExecutionDLL {
 	public static void main(String[] args) {
 		
 //		testInstance();
-		testAppend();
+//		testAppend();
 	}
 	
 	static void testAppend() {
@@ -28,5 +28,7 @@ public class ExecutionDLL {
 		ll1.printLastNode();
 		ll1.size();
 	}
+	
+	
 
 }
