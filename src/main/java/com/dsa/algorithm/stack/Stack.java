@@ -1,9 +1,13 @@
 package com.dsa.algorithm.stack;
 
-public class Stack {
+import java.util.ArrayList;
+
+public class Stack<T> {
 
 	private Node top;
 	private int height = 0;
+	
+	private ArrayList<T> stackList = new ArrayList<>(); // while implementing with Arraylist
 
 	class Node {
 		int value;
@@ -12,6 +16,10 @@ public class Stack {
 		Node(int value) {
 			this.value = value;
 		}
+	}
+	
+	Stack() {
+		
 	}
 
 	Stack(int value) {
@@ -44,7 +52,7 @@ public class Stack {
 		height++;
 	}
 
-	public Node pop() {
+	public Node pop1() {
 		if (height == 0)
 			return null;
 		Node temp = top;
@@ -52,6 +60,16 @@ public class Stack {
 		temp.next = null;
 		height--;
 		return temp;
+	}
+	
+	public void push(T value) {
+		stackList.add(value);
+	}
+
+	public T pop() {
+		if (stackList.isEmpty())
+			return null;
+		return stackList.remove(stackList.size()-1);
 	}
 
 }
