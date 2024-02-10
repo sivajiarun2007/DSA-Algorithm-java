@@ -6,7 +6,7 @@ public class Stack<T> {
 
 	private Node top;
 	private int height = 0;
-	
+
 	private ArrayList<T> stackList = new ArrayList<>(); // while implementing with Arraylist
 
 	class Node {
@@ -17,9 +17,9 @@ public class Stack<T> {
 			this.value = value;
 		}
 	}
-	
+
 	Stack() {
-		
+
 	}
 
 	Stack(int value) {
@@ -61,7 +61,7 @@ public class Stack<T> {
 		height--;
 		return temp;
 	}
-	
+
 	public void push(T value) {
 		stackList.add(value);
 	}
@@ -69,7 +69,13 @@ public class Stack<T> {
 	public T pop() {
 		if (stackList.isEmpty())
 			return null;
-		return stackList.remove(stackList.size()-1);
+		return stackList.remove(stackList.size() - 1);
+	}
+
+	public T peek() {
+		if (stackList.isEmpty())
+			return null;
+		return stackList.get(stackList.size() - 1);
 	}
 
 }
