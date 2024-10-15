@@ -156,7 +156,7 @@ public class HashTable {
 	}
 
 	public static int[] twoSum(int[] input, int target) {
-		int[] result = {} ;
+		int[] result = {};
 		HashMap<Integer, Integer> inpMap = new HashMap<>();
 		for (int i = 0; i < input.length; i++) {
 			inpMap.put(input[i], i);
@@ -165,7 +165,7 @@ public class HashTable {
 		for (int i = 0; i < input.length; i++) {
 			int current = input[i];
 			int expectedSumVar = target - current;
-			System.out.println("currentVal: "+ current + "ActualVal: " + expectedSumVar + "Target: " + target);
+			System.out.println("currentVal: " + current + "ActualVal: " + expectedSumVar + "Target: " + target);
 			if (inpMap.get(expectedSumVar) != null) {
 				result = new int[2];
 				result[0] = i;
@@ -173,6 +173,116 @@ public class HashTable {
 				break;
 			}
 
+		}
+
+		return result;
+
+	}
+
+	public static int[] subarraySum1(int[] input, int target) {
+		int[] result = {};
+		int arrLength = input.length;
+		HashMap<Integer, Integer> inpMap = new HashMap<>();
+		for (int i = 0; i < input.length; i++) {
+			inpMap.put(i, input[i]);
+		}
+
+		System.out.println("arr Length: " + arrLength);
+
+		int j = 0;
+		int k = 1;
+		int sum = 0;
+		int startValue = 0;
+		int endValue = 0;
+		while (j < arrLength - 1) {
+			startValue = inpMap.get(j);
+			endValue = inpMap.get(k);
+			if (sum == 0) {
+
+				sum = startValue + endValue;
+			} else {
+				sum = sum + endValue;
+			}
+			System.out.println("startValue: " + startValue + "endValue: " + endValue + "sum: " + sum);
+			if (sum == target) {
+				result = new int[2];
+				result[0] = j;
+				result[1] = k;
+				break;
+			}
+
+			if (sum < target && k < arrLength - 1) {
+				k++;
+			} else if (sum > target || k == arrLength - 1) {
+				sum = 0;
+				j++;
+				k = j + 1;
+
+			}
+		}
+
+		return result;
+
+	}
+
+	public static int[] subarraySum(int[] input, int target) {
+		int[] result = {};
+		int arrLength = input.length;
+		HashMap<Integer, Integer> inpMap = new HashMap<>();
+		for (int i = 0; i < input.length; i++) {
+			inpMap.put(i, input[i]);
+		}
+
+		System.out.println("arr Length: " + arrLength);
+
+		int j = 0;
+		int k = 0;
+		int sum = 0;
+		int startValue = 0;
+		int endValue = 0;
+		if (arrLength > 0) {
+			startValue = inpMap.get(j);
+			endValue = inpMap.get(k);
+		}
+
+		while (j <= arrLength - 1) {
+			if (k <= arrLength - 1) {
+				endValue = inpMap.get(k);
+				System.out.println("startValue: " + startValue + "endValue: " + endValue + "sum: " + sum);
+				if (j == k) {
+					sum = endValue;
+				} else {
+					sum = sum + endValue;
+				}
+				if (sum == target) {
+					result = new int[2];
+					result[0] = j;
+					result[1] = k;
+					break;
+
+				}
+				k++;
+
+			} else {
+				j++;
+				k = j;
+//				startValue = inpMap.get(j);
+				sum = 0;
+			}
+
+		}
+
+		return result;
+
+	}
+
+	public static int[] subarraySumBetterImplementation(int[] input, int target) {
+		int[] result = {};
+		int arrLength = input.length;
+		HashMap<Integer, Integer> inpMap = new HashMap<>();
+		int sum = 0;
+		for (int i = 0; i < input.length; i++) {
+			inpMap.put(null, null);
 		}
 
 		return result;
