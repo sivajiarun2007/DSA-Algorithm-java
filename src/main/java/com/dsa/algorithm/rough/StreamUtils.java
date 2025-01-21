@@ -13,9 +13,16 @@ public class StreamUtils {
 		var  finalSet = result.stream().flatMap(x -> x.stream()).collect(Collectors.toSet());
 		var  finalCounterMap = result.stream().flatMap(x -> x.stream()).collect(Collectors.groupingBy(Function.identity(),Collectors.counting()));
 		
-		System.out.println(finalResult);
-		System.out.println(finalSet);
-		System.out.println(finalCounterMap);
+		System.out.println("finalResult: "+ finalResult);
+		System.out.println("finalSet: "+finalSet);
+		System.out.println("finalCounterMap: "+finalCounterMap);
+		
+		
+		var testJava9Fun = List.of("Arun", "Gandhi","Sve","Sia");
+		
+		testJava9Fun.stream().takeWhile(x-> x.equalsIgnoreCase("arun")).forEach(System.out::println); //Arun
+		testJava9Fun.stream().dropWhile(x-> x.equalsIgnoreCase("arun")).forEach(System.out::println); // From Gandhi
+		
 
 	}
 
