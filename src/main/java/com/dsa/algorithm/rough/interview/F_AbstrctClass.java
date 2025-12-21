@@ -8,6 +8,8 @@ public abstract class F_AbstrctClass {
 	
 	public static void main(String[] args) {
 		
+		System.out.println("Test");
+		
 		// instance cannot be created
 //		F_AbstrctClass = new F_AbstrctClass() {
 //		};
