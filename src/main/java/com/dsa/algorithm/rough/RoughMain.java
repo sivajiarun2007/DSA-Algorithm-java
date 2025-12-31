@@ -13,6 +13,8 @@ class B extends A {
 public class RoughMain {
 
 	public static void main(String[] args) {
+		
+		System.out.println(5/4);
 		String s1 = "Arun";
 		String s2 = "Sve";
 		String s3 = "Sia";
