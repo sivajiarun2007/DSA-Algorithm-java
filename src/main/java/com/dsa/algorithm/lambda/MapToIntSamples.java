@@ -1,5 +1,6 @@
 package com.dsa.algorithm.lambda;
 
+import java.util.IntSummaryStatistics;
 import java.util.List;
 
 public class MapToIntSamples {
@@ -11,6 +12,9 @@ public class MapToIntSamples {
 		System.out.println(list.stream().count());
 		System.out.println(list.stream().mapToInt(x-> x.age).max().getAsInt());
 		System.out.println(list.stream().mapToInt(x-> x.age).sum());
+		
+		IntSummaryStatistics stat = list.stream().mapToInt(x-> x.age).summaryStatistics();
+		System.out.println(stat);
 	}
 
 }
